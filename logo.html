@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .logo-slider{
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .logo-slide{
+            display: inline-block;
+            float: left;
+        }
+
+        .logo-slide img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logo-slider">
+        <div class="logo-slide">
+            <img src="./media/logos/1.webp" alt="">
+        </div>
+        <div class="logo-slide">
+            <img src="./media/logos/1.webp" alt="">
+        </div>
+        <div class="logo-slide">
+            <img src="./media/logos/1.webp" alt="">
+        </div>
+    </div>
+
+
+    <script>
+        const logoSlider = document.querySelector(".logo-slider");
+        const logoSlides = document.querySelector(".logo-slide");
+
+        let counter = 0;
+        const slideWidth = logoSlides[0].clientWidth;
+
+        function slide(){
+            if (counter === logoSlides.length){
+                counter = 0;
+
+            }
+            logoSlider.style.transform = `translayex(${-counter * slideWidth})`
+            counter++;
+        }
+
+        setInterval(slide, 3000);
+    </script>
+</body>
+</html>
